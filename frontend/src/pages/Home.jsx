@@ -41,7 +41,7 @@ export default function Home() {
       {/* ================= HOME / HERO SECTION ================== */}
       <section
         id="home"
-        className="relative w-full min-h-[90vh] md:min-h-screen flex items-start pt-10 md:pt-16 pb-20 bg-gradient-to-br from-brand-soft via-brand-accent/40 to-white"
+        className="relative w-full min-h-[90vh] md:min-h-screen flex items-center md:items-start pt-10 md:pt-16 pb-20 bg-gradient-to-br from-brand-soft via-brand-accent/40 to-white"
       >
         <div className="absolute -top-24 -right-24 w-72 h-72 md:w-[500px] md:h-[500px] bg-brand-primary/20 rounded-full blur-3xl" />
         <div className="absolute top-1/3 -left-24 w-72 h-72 md:w-[500px] md:h-[500px] bg-brand-secondary/20 rounded-full blur-3xl" />
@@ -49,7 +49,7 @@ export default function Home() {
         <div className="relative z-10 w-full">
           <div className="max-w-7xl mx-auto px-4 md:px-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
             {/* === PERUBAHAN 1: tambah mx-4 untuk centering card di mobile === */}
-            <div className="animate-fade-up text-center md:text-left bg-white/85 backdrop-blur rounded-2xl shadow-xl p-5 mx-4 -mt-6 md:mx-0 md:bg-transparent md:shadow-none md:rounded-none md:p-0 md:mt-0 font-poppins">
+            <div className="animate-fade-up text-center md:text-left bg-white/85 backdrop-blur rounded-2xl shadow-xl p-5 mx-4 md:mx-0 md:bg-transparent md:shadow-none md:rounded-none md:p-0 md:-mt-6 font-poppins">
               {/* === PERUBAHAN 2: hapus <br /> agar judul wrap alami di mobile === */}
               <h1 className="text-[22px] sm:text-3xl md:text-5xl font-bold leading-snug mb-3 md:mb-4">
                 Undangan Pernikahan Digital{" "}
@@ -85,9 +85,18 @@ export default function Home() {
               </div>
               {/* === PERUBAHAN 3: tambah text-left agar teks checkmark rata kiri di mobile === */}
               <div className="text-sm text-gray-600 space-y-1 max-w-sm mx-auto md:mx-0 text-left">
-                <p>✔ Aktif cepat dan mudah digunakan</p>
-                <p>✔ Bisa dibagikan ke WhatsApp & media sosial</p>
-                <p>✔ Desain rapi, modern, dan responsif</p>
+                <p className="flex items-start gap-2">
+                  <span className="mt-0.5 shrink-0">✔</span>
+                  <span>Aktif cepat dan mudah digunakan</span>
+                </p>
+                <p className="flex items-start gap-2">
+                  <span className="mt-0.5 shrink-0">✔</span>
+                  <span>Bisa dibagikan ke WhatsApp & media sosial</span>
+                </p>
+                <p className="flex items-start gap-2">
+                  <span className="mt-0.5 shrink-0">✔</span>
+                  <span>Desain rapi, modern, dan responsif</span>
+                </p>
               </div>
 
               {/* SOCIAL CONTACTS */}
