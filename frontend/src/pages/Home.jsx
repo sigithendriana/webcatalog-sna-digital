@@ -31,7 +31,7 @@ export default function Home() {
     if (iframe) {
       iframe.contentWindow.postMessage(
         { type: "SET_MUTE", value: newMutedState },
-        "*"
+        "*",
       );
     }
   };
@@ -48,9 +48,14 @@ export default function Home() {
 
         <div className="relative z-10 w-full">
           <div className="max-w-7xl mx-auto px-4 md:px-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-            <div className="animate-fade-up text-center md:text-left bg-white/85 backdrop-blur rounded-2xl shadow-xl p-5 -mt-6 md:bg-transparent md:shadow-none md:rounded-none md:p-0 md:mt-0 font-poppins">
+            {/* === PERUBAHAN 1: tambah mx-4 untuk centering card di mobile === */}
+            <div className="animate-fade-up text-center md:text-left bg-white/85 backdrop-blur rounded-2xl shadow-xl p-5 mx-4 -mt-6 md:mx-0 md:bg-transparent md:shadow-none md:rounded-none md:p-0 md:mt-0 font-poppins">
+              {/* === PERUBAHAN 2: hapus <br /> agar judul wrap alami di mobile === */}
               <h1 className="text-[22px] sm:text-3xl md:text-5xl font-bold leading-snug mb-3 md:mb-4">
-                Undangan Pernikahan Digital <br />
+                Undangan Pernikahan Digital{" "}
+                <span className="text-brand-primary hidden md:inline">
+                  <br />
+                </span>
                 <span className="text-brand-primary">
                   Praktis & Siap Dibagikan
                 </span>
@@ -69,7 +74,7 @@ export default function Home() {
                 </button>
                 <a
                   href={`https://wa.me/628138201614?text=${encodeURIComponent(
-                    "Halo SNA Digital, saya ingin konsultasi mengenai undangan digital !!!"
+                    "Halo SNA Digital, saya ingin konsultasi mengenai undangan digital !!!",
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -78,7 +83,8 @@ export default function Home() {
                   Konsultasi via WhatsApp
                 </a>
               </div>
-              <div className="text-sm text-gray-600 space-y-1 max-w-sm mx-auto md:mx-0">
+              {/* === PERUBAHAN 3: tambah text-left agar teks checkmark rata kiri di mobile === */}
+              <div className="text-sm text-gray-600 space-y-1 max-w-sm mx-auto md:mx-0 text-left">
                 <p>✔ Aktif cepat dan mudah digunakan</p>
                 <p>✔ Bisa dibagikan ke WhatsApp & media sosial</p>
                 <p>✔ Desain rapi, modern, dan responsif</p>
@@ -187,7 +193,7 @@ export default function Home() {
                       </Link>
                       <a
                         href={`https://wa.me/628138201614?text=${encodeURIComponent(
-                          `Halo SNA Digital, saya ingin order template ${item.name}`
+                          `Halo SNA Digital, saya ingin order template ${item.name}`,
                         )}`}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -227,7 +233,7 @@ export default function Home() {
                 <p className="text-sm text-gray-500">SNA Digital</p>
                 <a
                   href={`https://wa.me/628138201614?text=${encodeURIComponent(
-                    "Halo SNA Digital, saya ingin bertanya ?"
+                    "Halo SNA Digital, saya ingin bertanya ?",
                   )}`}
                   className="text-blue-500 text-sm font-semibold flex items-center gap-1 mt-1 hover:underline"
                 >
