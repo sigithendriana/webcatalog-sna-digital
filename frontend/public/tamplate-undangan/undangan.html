@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Enhanced Boho Earth Tone Wedding Invitation</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=Dancing+Script:wght@400;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ee5b2b",
+                        "terracotta": "#c96646",
+                        "sage": "#8da399",
+                        "earth": "#a67c52",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221510",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"],
+                        "handwritten": ["Dancing Script", "cursive"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "2xl": "2rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        .scene {
+            display: none;
+        }
+
+        .scene.active {
+            display: block;
+        }
+        .boho-blob {
+            position: absolute;
+            z-index: -1;
+            filter: blur(60px);
+            opacity: 0.12;
+        }
+        .botanical-line {
+            opacity: 0.15;
+            pointer-events: none;
+        }
+        .masonry-grid {
+            column-count: 2;
+            column-gap: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .masonry-grid {
+                column-count: 3;
+            }
+        }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, #8da399, #ee5b2b, transparent);
+            opacity: 0.3;
+        }
+        .reveal-on-scroll {
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+        }
+        .music-pulse {
+            animation: pulse-slow 3s infinite ease-in-out;
+        }
+        @keyframes pulse-slow {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.9; }
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-[#181311] dark:text-white antialiased transition-colors duration-300">
+    <!-- audio -->
+    <audio id="bg-music" loop>
+        <source src="musik.mp3" type="audio/mpeg">
+    </audio>
+
+    <main class="relative overflow-hidden pt-20">
+        <div class="boho-blob bg-primary w-96 h-96 top-20 -left-20 rounded-full"></div>
+        <div class="boho-blob bg-sage w-[500px] h-[500px] top-[40%] -right-40 rounded-full"></div>
+        <div class="boho-blob bg-earth w-64 h-64 bottom-20 left-1/4 rounded-full"></div>
+
+        <!-- SCENE 1 : OPENING -->
+        <div id="scene-1" class="scene active">
+            <section class="max-w-[1200px] mx-auto px-6 py-12 md:py-20">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 relative">
+                        <div class="aspect-[4/5] bg-cover bg-center rounded-2xl shadow-2xl relative z-10 hover:scale-[1.01] transition-transform duration-700"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAEInh-fdWB1p1QByd8kKoAo0F80VOtpcsgBGJwCcHpfU4YFrC5Ru1lr5z8hVSav--r_Wl7K-e248LlVS9vFDtIMyFMtizkOdeHIv7BRopw4GaMlSKpSN6-0rxhFAluYLWj3lrWC70qV60rkpwq3wCuELfHnylYbJewdgSeD9YIVXg5O4AO_1h7e1ioHQtoKfPMBAEzTwcHgNciMjZvs8Mt_bJtrNRQt5DWa9IBXq36U_h3A-8nVU8fvtF7fqlEb_i4S0QHdwfZ84PE");'>
+                        </div>
+                        <div class="absolute -bottom-6 -left-6 w-48 h-48 bg-sage/20 rounded-2xl -z-10 animate-pulse">
+                        </div>
+                        <div class="absolute -top-6 -right-6 w-32 h-32 bg-primary/10 rounded-full -z-10"></div>
+                    </div>
+                    <div class="lg:col-span-5 space-y-8">
+                        <div
+                            class="inline-flex items-center gap-2 px-4 py-2 bg-sage/10 text-sage dark:text-sage rounded-full">
+                            <span class="material-symbols-outlined text-sm">calendar_today</span>
+                            <span class="text-xs font-bold uppercase tracking-widest">June 30th, 2026</span>
+                        </div>
+                        <h1 class="text-6xl md:text-8xl font-serif italic text-primary leading-[1.1]">
+                            Marcus &amp; <br />Jada
+                        </h1>
+                        <p class="text-lg text-[#181311]/70 dark:text-white/70 max-w-md font-display">
+                            Join us as we celebrate our love under the golden oaks of Oak Valley Ranch. A day of joy,
+                            dancing, and earthy delights.
+                        </p>
+                        <p class="text-lg text-[#181311]/70 dark:text-white/70">
+                            Dear <span id="guest-name">Guest</span>
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button id="btn-open"
+                                class="bg-primary text-white px-8 py-4 rounded-xl font-bold text-center hover:scale-105 hover:bg-terracotta transition-all shadow-lg shadow-primary/20">
+                                <span class="truncate">Open Invitation</span>
+                                <span
+                                    class="material-symbols-outlined ml-2 transition-transform group-hover:translate-x-1">arrow_forward</span>
+                            </button>
+                            <div
+                                class="flex items-center gap-3 px-6 py-4 border border-[#181311]/10 dark:border-white/10 rounded-xl">
+                                <span class="material-symbols-outlined text-sage">location_on</span>
+                                <span class="font-medium">Oak Valley, CA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- SCENE 2 : MAIN -->
+        <div id="scene-2" class="scene">
+            <section class="max-w-[1000px] mx-auto px-6 py-24 relative" id="story">
+                <div class="text-center mb-20">
+                    <p class="font-handwritten text-3xl text-earth mb-2">Our Journey Together</p>
+                    <h2 class="text-4xl md:text-5xl font-serif">The Love Story</h2>
+                    <div class="w-24 h-1 bg-primary/20 mx-auto mt-6 rounded-full"></div>
+                </div>
+                <div class="relative timeline-line">
+                    <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 mb-20 items-center">
+                        <div class="md:text-right">
+                            <div
+                                class="bg-white dark:bg-[#2d1e18] p-6 rounded-2xl shadow-sm border border-sage/10 hover-lift">
+                                <span class="text-sage font-bold text-sm tracking-widest uppercase">Spring 2019</span>
+                                <h3 class="text-xl font-serif mt-1 mb-3">Where It All Began</h3>
+                                <p class="text-sm text-[#181311]/60 dark:text-white/60">A chance encounter at a local
+                                    bookstore cafe. Marcus noticed Jada's vintage camera, and one conversation about
+                                    film
+                                    photography turned into an afternoon that never ended.</p>
+                            </div>
+                        </div>
+                        <div
+                            class="absolute left-1/2 -translate-x-1/2 w-12 h-12 bg-background-light dark:bg-background-dark border-4 border-sage rounded-full z-10 flex items-center justify-center hidden md:flex">
+                            <span class="material-symbols-outlined text-sage text-2xl">eco</span>
+                        </div>
+                        <div class="hidden md:block">
+                            <div class="aspect-video bg-cover bg-center rounded-2xl shadow-md rotate-2"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCxD9tmN3CO3TowHV1RVfStx3qa9vi3fY_tSGDPeuxE6IoLgmtcms0ZdHn_xuzcNA9dwLJAHSRf414YDFtlAxJ3XRpusni8PL4Tfn7mx0Aq1ighFURd7DGy8v8oDhwilpxt_0lPHA_CbGIFyG9vR3vqJmQtgsxBLk6hj1DCP-TStK0ebNQzHSfhDcQPRZ-jMJ69-hf8lUfudlFnNiHfbDGNxka9B1s0tWQ7KzcjnnCam4NDoRZo6UHdFHabqmdT4WhSR5f53RTfQXop");'>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 mb-20 items-center">
+                        <div class="order-2 md:order-1 hidden md:block">
+                            <div class="aspect-video bg-cover bg-center rounded-2xl shadow-md -rotate-2"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB48U-1imfssbdAktga66TpsjEEEehvF9alyBEdeQZ4KMV4OJT2IQC4Y5NDdYn176XG8HPynwIP2qN62kc5CAjayxTsbA07e409DUo7pPkeereVb4fTapCfvyy6uKpmu5SWMAISpYUGAg6gqlMnQmAXNVFrelfyEXORsNqSZpioK-EgryNgKPX0McFU09dKRlTrZX24syJQK-zMWQoBt5vZmTdOZ2OIc0Nlx8_207JV2Jp5PHE0qWAjaxF4x4JcRQdiTSPGvFmLoSG2");'>
+                            </div>
+                        </div>
+                        <div
+                            class="absolute left-1/2 -translate-x-1/2 w-12 h-12 bg-background-light dark:bg-background-dark border-4 border-primary rounded-full z-10 flex items-center justify-center hidden md:flex">
+                            <span class="material-symbols-outlined text-primary text-2xl">favorite</span>
+                        </div>
+                        <div class="order-1 md:order-2">
+                            <div
+                                class="bg-white dark:bg-[#2d1e18] p-6 rounded-2xl shadow-sm border border-primary/10 hover-lift">
+                                <span class="text-primary font-bold text-sm tracking-widest uppercase">Winter
+                                    2021</span>
+                                <h3 class="text-xl font-serif mt-1 mb-3">The Big Adventure</h3>
+                                <p class="text-sm text-[#181311]/60 dark:text-white/60">Our first road trip across the
+                                    Pacific Coast Highway. Between the redwoods and the ocean, we realized we never
+                                    wanted
+                                    to travel through life without each other.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="md:text-right">
+                            <div
+                                class="bg-white dark:bg-[#2d1e18] p-6 rounded-2xl shadow-sm border border-earth/10 hover-lift">
+                                <span class="text-earth font-bold text-sm tracking-widest uppercase">Autumn 2026</span>
+                                <h3 class="text-xl font-serif mt-1 mb-3">The Yes!</h3>
+                                <p class="text-sm text-[#181311]/60 dark:text-white/60">Under a canopy of golden leaves
+                                    at
+                                    Oak Valley Ranch, Marcus asked the most important question of his life. Through
+                                    happy
+                                    tears, Jada said yes to forever.</p>
+                            </div>
+                        </div>
+                        <div
+                            class="absolute left-1/2 -translate-x-1/2 w-12 h-12 bg-background-light dark:bg-background-dark border-4 border-earth rounded-full z-10 flex items-center justify-center hidden md:flex">
+                            <span class="material-symbols-outlined text-earth text-2xl">diamond</span>
+                        </div>
+                        <div class="hidden md:block">
+                            <div class="aspect-video bg-cover bg-center rounded-2xl shadow-md rotate-1"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCisTthFp2KcdiSmS0xWuSj_w1ARB5SWgD5Oi1WcKUEZd0ehd7K4vX44NzNumzdZLdeRetNKFeFRsZOdX2jPXv_t5aD0kQ_ihg71tO3r_McBv_t5yGyuSJYkk8kN4tUTVqE60297N_dAYqBfgPNUV6zlvP-p7cEFIbafgU52rKOmZkpBxGNCldGPk8JMPYuDH0cj-2dK7M9LJXie5krjWhIcjmyiRfDZQWv3so87YT8ewZnTzuBqYgKp5opog_06rDvzie6Fb6_zPKb");'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-sage/5 dark:bg-white/5 py-24" id="schedule">
+                <div class="max-w-[1200px] mx-auto px-6">
+                    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                        <div>
+                            <span class="text-primary font-bold uppercase tracking-[0.3em] text-sm">When</span>
+                            <h2 class="text-4xl md:text-5xl font-serif mt-2">The Big Day</h2>
+                        </div>
+                        <div class="text-right hidden md:block">
+                            <p class="text-earth font-bold">Saturday</p>
+                            <p class="text-2xl font-serif">June 30, 2026</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div
+                            class="bg-white dark:bg-background-dark p-10 rounded-2xl shadow-sm hover:shadow-xl transition-all hover:-translate-y-2 border-b-4 border-sage group">
+                            <span
+                                class="material-symbols-outlined text-sage text-4xl mb-4 group-hover:scale-110 transition-transform">church</span>
+                            <h3 class="text-xl font-bold mb-2">The Ceremony</h3>
+                            <p class="text-earth font-bold mb-4">4:30 PM</p>
+                            <p class="text-sm text-[#181311]/70 dark:text-white/70">The Golden Oak Grove at Oak Valley
+                                Ranch. Please arrive 15 minutes early.</p>
+                        </div>
+                        <div
+                            class="bg-white dark:bg-background-dark p-10 rounded-2xl shadow-sm hover:shadow-xl transition-all hover:-translate-y-2 border-b-4 border-primary group">
+                            <span
+                                class="material-symbols-outlined text-primary text-4xl mb-4 group-hover:scale-110 transition-transform">local_bar</span>
+                            <h3 class="text-xl font-bold mb-2">Cocktail Hour</h3>
+                            <p class="text-earth font-bold mb-4">5:30 PM</p>
+                            <p class="text-sm text-[#181311]/70 dark:text-white/70">Drinks and hors d'oeuvres in the
+                                Sunset
+                                Orchard. Acoustic music will be played.</p>
+                        </div>
+                        <div
+                            class="bg-white dark:bg-background-dark p-10 rounded-2xl shadow-sm hover:shadow-xl transition-all hover:-translate-y-2 border-b-4 border-earth group">
+                            <span
+                                class="material-symbols-outlined text-earth text-4xl mb-4 group-hover:scale-110 transition-transform">restaurant</span>
+                            <h3 class="text-xl font-bold mb-2">Reception</h3>
+                            <p class="text-earth font-bold mb-4">7:00 PM</p>
+                            <p class="text-sm text-[#181311]/70 dark:text-white/70">Dinner, speeches, and dancing until
+                                late in the Great Barn.</p>
+                        </div>
+                    </div>
+                    <!-- Countdown Timer -->
+                    <div
+                        class="bg-white dark:bg-background-dark p-10 mt-10 rounded-2xl shadow-sm hover:shadow-xl transition-all hover:-translate-y-2 border-b-4 border-terracotta group flex flex-col items-center">
+                        <h3 class="text-sm md:text-xl font-bold uppercase tracking-widest text-primary font-serif mb-8">
+                            Save the Date</h3>
+                        <div class="flex gap-4 w-full max-w-2xl mx-auto justify-center">
+                            <div class="flex grow basis-0 flex-col items-center gap-3">
+                                <div
+                                    class="flex h-20 w-full items-center justify-center rounded-2xl bg-[#f3ebe7] dark:bg-white/10 shadow-sm border border-primary/5">
+                                    <p id="cd-days" class="text-primary font-serif text-3xl">00</p>
+                                </div>
+                                <p
+                                    class="text-[#1b120d] dark:text-gray-300 text-xs font-bold uppercase font-serif tracking-tighter">
+                                    Days
+                                </p>
+                            </div>
+                            <div class="flex grow basis-0 flex-col items-center gap-3">
+                                <div
+                                    class="flex h-20 w-full items-center justify-center rounded-2xl bg-[#f3ebe7] dark:bg-white/10 shadow-sm border border-primary/5">
+                                    <p id="cd-hours" class="text-primary font-serif text-3xl">00</p>
+                                </div>
+                                <p
+                                    class="text-[#1b120d] dark:text-gray-300 text-xs font-bold uppercase font-serif tracking-tighter">
+                                    Hours
+                                </p>
+                            </div>
+                            <div class="flex grow basis-0 flex-col items-center gap-3">
+                                <div
+                                    class="flex h-20 w-full items-center justify-center rounded-2xl bg-[#f3ebe7] dark:bg-white/10 shadow-sm border border-primary/5">
+                                    <p id="cd-minutes" class="text-primary font-serif text-3xl">00</p>
+                                </div>
+                                <p
+                                    class="text-[#1b120d] dark:text-gray-300 text-xs font-bold uppercase font-serif tracking-tighter">
+                                    Minutes</p>
+                            </div>
+                            <div class="flex grow basis-0 flex-col items-center gap-3">
+                                <div
+                                    class="flex h-20 w-full items-center justify-center rounded-2xl bg-[#f3ebe7] dark:bg-white/10 shadow-sm border border-primary/5">
+                                    <p id="cd-seconds" class="text-primary text-3xl font-serif">00</p>
+                                </div>
+                                <p
+                                    class="text-[#1b120d] dark:text-gray-300 text-xs font-bold uppercase font-serif tracking-tighter">
+                                    Seconds</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="max-w-[1200px] mx-auto px-6 py-24" id="location">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 lg:order-1">
+                        <div
+                            class="w-full h-[450px] bg-sage/10 rounded-2xl overflow-hidden shadow-inner relative group">
+                            <div class="absolute inset-0 bg-cover bg-center grayscale contrast-125 opacity-70 group-hover:grayscale-0 transition-all duration-700"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCisTthFp2KcdiSmS0xWuSj_w1ARB5SWgD5Oi1WcKUEZd0ehd7K4vX44NzNumzdZLdeRetNKFeFRsZOdX2jPXv_t5aD0kQ_ihg71tO3r_McBv_t5yGyuSJYkk8kN4tUTVqE60297N_dAYqBfgPNUV6zlvP-p7cEFIbafgU52rKOmZkpBxGNCldGPk8JMPYuDH0cj-2dK7M9LJXie5krjWhIcjmyiRfDZQWv3so87YT8ewZnTzuBqYgKp5opog_06rDvzie6Fb6_zPKb');">
+                            </div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div
+                                    class="bg-white dark:bg-background-dark p-4 rounded-full shadow-lg border-4 border-primary/20">
+                                    <span
+                                        class="material-symbols-outlined text-primary text-4xl animate-bounce">location_on</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2 space-y-6">
+                        <span class="text-earth font-bold uppercase tracking-[0.3em] text-sm">Where</span>
+                        <h2 class="text-4xl md:text-5xl font-serif">Oak Valley Ranch</h2>
+                        <p class="text-lg text-[#181311]/70 dark:text-white/70">
+                            1234 Heritage Lane, <br />
+                            Oak Valley, CA 90210
+                        </p>
+                        <div class="pt-4 space-y-4">
+                            <div class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-sage">directions_car</span>
+                                <div>
+                                    <h4 class="font-bold">Parking</h4>
+                                    <p class="text-sm text-[#181311]/60 dark:text-white/60">Ample parking is available
+                                        on-site near the Great Barn.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-sage">hotel</span>
+                                <div>
+                                    <h4 class="font-bold">Accommodation</h4>
+                                    <p class="text-sm text-[#181311]/60 dark:text-white/60">We have blocked rooms at the
+                                        nearby 'Sagebrush Inn'.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=-7.83317504643076,110.38316275250995"
+                            target="_blank" rel="noopener"
+                            class="w-full sm:w-auto mt-6 bg-earth text-white px-10 py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-earth/90 transition-colors shadow-lg">
+                            <span class="material-symbols-outlined">map</span>
+                            Get Directions
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section class="max-w-[1200px] mx-auto px-6 py-24" id="gallery">
+                <div class="text-center mb-16">
+                    <span class="text-sage font-bold uppercase tracking-[0.3em] text-sm">Moments</span>
+                    <h2 class="text-4xl md:text-5xl font-serif mt-2">Captured Memories</h2>
+                </div>
+                <div class="masonry-grid">
+                    <div class="masonry-item">
+                        <img alt="Gallery 1"
+                            class="w-full rounded-2xl hover:opacity-90 transition-opacity cursor-pointer shadow-sm"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEInh-fdWB1p1QByd8kKoAo0F80VOtpcsgBGJwCcHpfU4YFrC5Ru1lr5z8hVSav--r_Wl7K-e248LlVS9vFDtIMyFMtizkOdeHIv7BRopw4GaMlSKpSN6-0rxhFAluYLWj3lrWC70qV60rkpwq3wCuELfHnylYbJewdgSeD9YIVXg5O4AO_1h7e1ioHQtoKfPMBAEzTwcHgNciMjZvs8Mt_bJtrNRQt5DWa9IBXq36U_h3A-8nVU8fvtF7fqlEb_i4S0QHdwfZ84PE" />
+                    </div>
+                    <div class="masonry-item">
+                        <img alt="Gallery 2"
+                            class="w-full rounded-2xl hover:opacity-90 transition-opacity cursor-pointer shadow-sm"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxD9tmN3CO3TowHV1RVfStx3qa9vi3fY_tSGDPeuxE6IoLgmtcms0ZdHn_xuzcNA9dwLJAHSRf414YDFtlAxJ3XRpusni8PL4Tfn7mx0Aq1ighFURd7DGy8v8oDhwilpxt_0lPHA_CbGIFyG9vR3vqJmQtgsxBLk6hj1DCP-TStK0ebNQzHSfhDcQPRZ-jMJ69-hf8lUfudlFnNiHfbDGNxka9B1s0tWQ7KzcjnnCam4NDoRZo6UHdFHabqmdT4WhSR5f53RTfQXop" />
+                    </div>
+                    <div class="masonry-item">
+                        <div
+                            class="bg-terracotta/10 p-8 rounded-2xl aspect-square flex flex-col items-center justify-center text-center">
+                            <span class="material-symbols-outlined text-primary text-4xl mb-4">photo_library</span>
+                            <p class="font-handwritten text-2xl text-primary">Pre-wedding memories</p>
+                        </div>
+                    </div>
+                    <div class="masonry-item">
+                        <img alt="Gallery 3"
+                            class="w-full rounded-2xl hover:opacity-90 transition-opacity cursor-pointer shadow-sm"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB48U-1imfssbdAktga66TpsjEEEehvF9alyBEdeQZ4KMV4OJT2IQC4Y5NDdYn176XG8HPynwIP2qN62kc5CAjayxTsbA07e409DUo7pPkeereVb4fTapCfvyy6uKpmu5SWMAISpYUGAg6gqlMnQmAXNVFrelfyEXORsNqSZpioK-EgryNgKPX0McFU09dKRlTrZX24syJQK-zMWQoBt5vZmTdOZ2OIc0Nlx8_207JV2Jp5PHE0qWAjaxF4x4JcRQdiTSPGvFmLoSG2" />
+                    </div>
+                    <div class="masonry-item">
+                        <img alt="Gallery 4"
+                            class="w-full rounded-2xl hover:opacity-90 transition-opacity cursor-pointer shadow-sm"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCisTthFp2KcdiSmS0xWuSj_w1ARB5SWgD5Oi1WcKUEZd0ehd7K4vX44NzNumzdZLdeRetNKFeFRsZOdX2jPXv_t5aD0kQ_ihg71tO3r_McBv_t5yGyuSJYkk8kN4tUTVqE60297N_dAYqBfgPNUV6zlvP-p7cEFIbafgU52rKOmZkpBxGNCldGPk8JMPYuDH0cj-2dK7M9LJXie5krjWhIcjmyiRfDZQWv3so87YT8ewZnTzuBqYgKp5opog_06rDvzie6Fb6_zPKb" />
+                    </div>
+                    <div class="masonry-item">
+                        <div class="bg-sage/10 p-10 rounded-2xl aspect-video flex items-center justify-center">
+                            <p class="font-serif italic text-sage text-xl">Love is in the air</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-terracotta/5 py-24" id="gift">
+                <div class="max-w-[800px] mx-auto px-6">
+                    <div class="text-center mb-12">
+                        <span class="text-terracotta font-bold uppercase tracking-[0.3em] text-sm">Online Gift</span>
+                        <h2 class="text-4xl font-serif mt-2">Digital Gift Box</h2>
+                        <p class="mt-4 text-[#181311]/70 dark:text-white/70 italic">Your presence is our greatest gift.
+                            However, if you wish to contribute to our future, a digital gift would be warmly
+                            appreciated.
+                        </p>
+                    </div>
+                    <div
+                        class="bg-white dark:bg-[#2d1e18] p-8 md:p-12 rounded-3xl shadow-xl border border-terracotta/10 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-terracotta/5 rounded-bl-full"></div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                            <!-- BANK 1 -->
+                            <div class="space-y-6">
+                                <div class="flex items-center gap-4 text-terracotta">
+                                    <span class="material-symbols-outlined text-3xl">account_balance</span>
+                                    <h3 class="text-xl font-bold">Bank Transfer</h3>
+                                </div>
+
+                                <div class="space-y-4 font-display">
+                                    <div>
+                                        <p class="text-xs uppercase text-earth font-bold tracking-wider">Account Holder
+                                        </p>
+                                        <p class="text-lg font-medium">Marcus J. Thorne</p>
+                                    </div>
+
+                                    <div>
+                                        <p class="text-xs uppercase text-earth font-bold tracking-wider">Bank Name</p>
+                                        <p class="text-lg font-medium">Global Heritage Bank</p>
+                                    </div>
+
+                                    <div>
+                                        <p class="text-xs uppercase text-earth font-bold tracking-wider">Account Number
+                                        </p>
+                                        <div class="flex items-center gap-2">
+                                            <p id="norek1"
+                                                class="text-lg font-mono font-bold tracking-widest text-primary">
+                                                1234-5678-9012
+                                            </p>
+                                            <button type="button" data-copy="norek1"
+                                                class="copy-btn material-symbols-outlined text-sage text-sm hover:text-primary">
+                                                content_copy
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- BANK 2 -->
+                            <div class="space-y-6">
+                                <div class="flex items-center gap-4 text-terracotta">
+                                    <span class="material-symbols-outlined text-3xl">account_balance</span>
+                                    <h3 class="text-xl font-bold">E-wallet</h3>
+                                </div>
+
+                                <div class="space-y-4 font-display">
+                                    <div>
+                                        <p class="text-xs uppercase text-earth font-bold tracking-wider">Account Holder
+                                        </p>
+                                        <p class="text-lg font-medium">Jada M. Lewis</p>
+                                    </div>
+
+                                    <div>
+                                        <p class="text-xs uppercase text-earth font-bold tracking-wider">Bank Name</p>
+                                        <p class="text-lg font-medium">Ovo/Dana</p>
+                                    </div>
+
+                                    <div>
+                                        <p class="text-xs uppercase text-earth font-bold tracking-wider">Account Number
+                                        </p>
+                                        <div class="flex items-center gap-2">
+                                            <p id="norek2"
+                                                class="text-lg font-mono font-bold tracking-widest text-primary">
+                                                9876-5432-1098
+                                            </p>
+                                            <button type="button" data-copy="norek2"
+                                                class="copy-btn material-symbols-outlined text-sage text-sm hover:text-primary">
+                                                content_copy
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <section class="relative py-24 bg-background-light dark:bg-background-dark overflow-hidden" id="rsvp">
+                <div class="absolute inset-0 z-0">
+                    <div class="absolute bottom-0 right-0 w-1/2 h-1/2 bg-primary/5 rounded-full blur-[100px]"></div>
+                    <div class="absolute top-0 left-0 w-1/2 h-1/2 bg-sage/5 rounded-full blur-[100px]"></div>
+                </div>
+                <div class="max-w-[800px] mx-auto px-6 relative z-10">
+                    <div class="bg-white dark:bg-[#2d1e18] p-8 md:p-16 rounded-3xl shadow-2xl border border-sage/10">
+                        <div class="text-center mb-12">
+                            <h2 class="text-4xl font-serif mb-4">Wishes & Prayers</h2>
+                            <p class="text-[#181311]/60 dark:text-white/60">Leave your warm wishes for the happy couple
+                            </p>
+                        </div>
+                        <form id="wishForm" class="space-y-8">
+                            <div class="space-y-2">
+                                <label class="text-xs font-bold uppercase tracking-wider text-earth">Full
+                                    Name</label>
+                                <input id="guestName"
+                                    class="w-full bg-background-light dark:bg-white/5 border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/50 transition-all outline-none"
+                                    placeholder="Your full name" type="text" />
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-xs font-bold uppercase tracking-wider text-earth">Wishes</label>
+                                <textarea id="guestMessage"
+                                    class="w-full bg-background-light dark:bg-white/5 border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/50 transition-all outline-none"
+                                    placeholder="Your Wishes..." rows="3"></textarea>
+                            </div>
+                            <button
+                                class="w-full bg-primary text-white py-5 rounded-xl font-black text-lg shadow-xl shadow-primary/30 hover:shadow-primary/50 transition-all hover:-translate-y-1 hover:bg-terracotta"
+                                type="submit">
+                                Send My Wishes
+                            </button>
+                        </form>
+                    </div>
+                    <!-- Messages Grid -->
+                    <div id="wish-list" class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+                    </div>
+
+                    <div id="pagination" class="flex justify-center items-center gap-2 mt-8">
+                    </div>
+                </div>
+            </section>
+            <footer class="py-12 bg-white dark:bg-[#1a100d] border-t border-sage/10 text-center">
+                <div class="max-w-[1200px] mx-auto px-6 space-y-6">
+                    <h2 class="text-2xl font-serif italic text-primary">Marcus &amp; Jada</h2>
+                    <p class="text-sm font-medium tracking-[0.2em] uppercase text-[#181311]/40 dark:text-white/40">
+                        #MarcusAndJada2026</p>
+                    <p class="text-xs text-[#181311]/30 dark:text-white/30 pt-4">❤️Made by SNA Digital. <br> Designed
+                        with love for the special day.
+                    </p>
+                </div>
+            </footer>
+        </div>
+    </main>
+
+    <script>
+        // ==========================
+        // GET NAMA TAMU
+        // ==========================
+
+        const params = new URLSearchParams(window.location.search);
+        const guestSlug = params.get("to");
+
+        if (guestSlug) {
+
+            fetch("api/get_guest.php?slug=" + guestSlug)
+                .then(res => res.json())
+                .then(data => {
+
+                    if (data.name) {
+                        document.getElementById("guest-name").innerText = data.name;
+                    }
+
+                });
+
+        }
+
+        const btnOpen = document.getElementById("btn-open");
+        const music = document.getElementById("bg-music");
+        const navbar = document.getElementById("navbar");
+
+        btnOpen.addEventListener("click", () => {
+            document.getElementById("scene-1").classList.remove("active");
+            document.getElementById("scene-2").classList.add("active");
+
+            window.scrollTo({ top: 0, behavior: "smooth" });
+
+            music.volume = 0.6;
+            music.play().catch(err => {
+                console.log("Autoplay blocked:", err);
+            });
+        });
+
+        // ===============================
+        // SET TANGGAL AKAD / ACARA
+        // ===============================
+        // Format: YYYY-MM-DDTHH:MM:SS
+        // WIB = +07:00
+
+        const targetDate = new Date("2026-06-30T08:00:00+07:00").getTime();
+        // ↑ ganti sesuai tanggal & jam acaramu
+
+        const daysEl = document.getElementById("cd-days");
+        const hoursEl = document.getElementById("cd-hours");
+        const minutesEl = document.getElementById("cd-minutes");
+        const secondsEl = document.getElementById("cd-seconds");
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance <= 0) {
+                daysEl.textContent = "00";
+                hoursEl.textContent = "00";
+                minutesEl.textContent = "00";
+                secondsEl.textContent = "00";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            daysEl.textContent = String(days).padStart(2, "0");
+            hoursEl.textContent = String(hours).padStart(2, "0");
+            minutesEl.textContent = String(minutes).padStart(2, "0");
+            secondsEl.textContent = String(seconds).padStart(2, "0");
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // copy norek
+        document.querySelectorAll(".copy-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const targetId = btn.getAttribute("data-copy");
+                const text = document.getElementById(targetId).innerText.trim();
+
+                navigator.clipboard.writeText(text).then(() => {
+                    btn.textContent = "check";
+                    setTimeout(() => btn.textContent = "content_copy", 1200);
+                });
+            });
+        });
+        // ==========================
+        // Wishes
+        // ==========================
+
+        const invitationCode = "C0"
+
+        let allWishes = []
+        let currentPage = 1
+        const perPage = 6
+
+        function avatarLetter(name) {
+            return name.charAt(0).toUpperCase()
+        }
+
+        function timeAgo(date) {
+
+            const seconds = Math.floor((new Date() - new Date(date)) / 1000)
+
+            const intervals = [
+                { label: "year", seconds: 31536000 },
+                { label: "month", seconds: 2592000 },
+                { label: "day", seconds: 86400 },
+                { label: "hour", seconds: 3600 },
+                { label: "minute", seconds: 60 }
+            ]
+
+            for (let i of intervals) {
+                const count = Math.floor(seconds / i.seconds)
+                if (count > 0) {
+                    return count + " " + i.label + (count > 1 ? "s" : "") + " ago"
+                }
+            }
+
+            return "just now"
+        }
+
+        function renderWishes() {
+
+            let start = (currentPage - 1) * perPage
+            let end = start + perPage
+
+            let pageItems = allWishes.slice(start, end)
+
+            let html = ""
+
+            pageItems.forEach(wish => {
+
+                html += `
+
+<div class="wish-card opacity-0 translate-y-5 transition-all duration-700 bg-white p-5 rounded-xl shadow">
+
+<div class="flex items-center gap-3 mb-2">
+
+<div class="w-10 h-10 rounded-full bg-pink-500 text-white flex items-center justify-center font-bold">
+${avatarLetter(wish.guest_name)}
+</div>
+
+<div>
+<p class="font-semibold">${wish.guest_name}</p>
+<p class="text-xs opacity-60">${timeAgo(wish.created_at)}</p>
+</div>
+
+</div>
+
+<p class="text-sm">${wish.message}</p>
+
+</div>
+
+`
+
+            })
+
+            document.getElementById("wish-list").innerHTML = html
+
+            animateCards()
+
+            renderPagination()
+
+        }
+
+        function animateCards() {
+
+            setTimeout(() => {
+
+                document.querySelectorAll(".wish-card").forEach((el, i) => {
+
+                    setTimeout(() => {
+                        el.classList.remove("opacity-0", "translate-y-5")
+                    }, i * 100)
+
+                })
+
+            }, 50)
+
+        }
+
+        function renderPagination() {
+
+            let totalPages = Math.ceil(allWishes.length / perPage)
+
+            let html = ""
+
+            html += `<button onclick="prevPage()" class="px-3 py-1 border rounded">Prev</button>`
+
+            for (let i = 1; i <= totalPages; i++) {
+
+                html += `
+
+<button onclick="goPage(${i})"
+class="px-3 py-1 rounded ${i === currentPage ? 'bg-primary text-white' : 'border'}">
+${i}
+</button>
+
+`
+
+            }
+
+            html += `<button onclick="nextPage()" class="px-3 py-1 border rounded">Next</button>`
+
+            document.getElementById("pagination").innerHTML = html
+
+        }
+
+        function goPage(page) {
+            currentPage = page
+            renderWishes()
+        }
+
+        function prevPage() {
+
+            if (currentPage > 1) {
+                currentPage--
+                renderWishes()
+            }
+
+        }
+
+        function nextPage() {
+
+            let totalPages = Math.ceil(allWishes.length / perPage)
+
+            if (currentPage < totalPages) {
+                currentPage++
+                renderWishes()
+            }
+
+        }
+
+        function loadWishes() {
+
+            fetch(`api/get_wishes.php?code=${invitationCode}`)
+                .then(res => res.json())
+                .then(data => {
+
+                    allWishes = data.reverse()
+
+                    renderWishes()
+
+                })
+
+        }
+
+        document.getElementById("wishForm").addEventListener("submit", function (e) {
+
+            e.preventDefault()
+
+            let name = document.getElementById("guestName").value
+            let message = document.getElementById("guestMessage").value
+
+            fetch("api/send_wish.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: `code=${invitationCode}&name=${name}&message=${message}`
+            })
+                .then(res => res.text())
+                .then(() => {
+
+                    document.getElementById("guestMessage").value = ""
+
+                    loadWishes()
+
+                })
+
+        })
+
+        loadWishes()
+    </script>
+
+</body>
+
+</html>

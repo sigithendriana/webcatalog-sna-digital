@@ -606,27 +606,6 @@
 
         updateCountdown();
         setInterval(updateCountdown, 1000);
-
-        // 1. Fungsi Mute (Gunakan nama unik agar tidak bentrok)
-function handleMute(isMuted) {
-    const mediaElements = document.querySelectorAll("audio, video");
-    mediaElements.forEach(media => {
-        media.muted = isMuted;
-        if (!isMuted && media.paused) {
-            media.play().catch(err => console.log("Autoplay blocked"));
-        }
-    });
-}
-
-// 2. Mendengarkan pesan dari Dashboard
-window.addEventListener("message", (event) => {
-    if (event.data && event.data.type === "SET_MUTE") {
-        handleMute(event.data.value);
-    }
-});
-
-// 3. Pastikan penutup script benar
-</script>
     </script>
 
 </body>
