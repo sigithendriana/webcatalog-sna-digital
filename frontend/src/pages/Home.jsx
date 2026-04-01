@@ -151,70 +151,93 @@ export default function Home() {
             Katalog Undangan
           </h2>
           <p className="text-gray-600 mb-10 max-w-2xl font-poppins">
-            Pilih template undangan digital yang sesuai dengan konsep pernikahan
-            Anda.
+            Pilih template undangan digital yang sesuai dengan konsep pernikahan Anda.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {templates.map((item) => (
-              <div
-                key={item.id}
-                className="border rounded-xl overflow-hidden shadow hover:shadow-lg transition flex flex-col"
-              >
-                <div className="relative w-full bg-gray-100 overflow-hidden">
-                  {item.thumbnail_url?.toLowerCase().endsWith(".mp4") ? (
-                    <video
-                      src={item.thumbnail_url}
-                      className="w-full h-auto block"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                    />
-                  ) : (
-                    <img
-                      src={
-                        item.thumbnail_url ||
-                        "https://via.placeholder.com/300x200"
-                      }
-                      alt={item.name}
-                      className="w-full h-auto block"
-                    />
-                  )}
-                </div>
-                <div className="p-4 flex flex-col flex-grow">
-                  <h3 className="font-semibold text-lg font-poppins">
-                    {item.name}
-                  </h3>
-                  <p className="text-sm text-gray-600 font-poppins mb-4">
-                    {item.description}
-                  </p>
-                  <div className="flex items-center justify-between mt-auto">
-                    <span className="font-bold text-brand-primary text-lg">
-                      Rp {item.price.toLocaleString("id-ID")}
-                    </span>
-                    <div className="flex items-center gap-2">
-                      <Link
-                        to={`/template/${item.slug}`}
-                        className="px-4 py-2 text-sm border border-brand-primary text-brand-primary rounded-lg hover:bg-blue-50 transition font-poppins"
-                      >
-                        Preview
-                      </Link>
-                      <a
-                        href={`https://wa.me/628138201614?text=${encodeURIComponent(
-                          `Halo SNA Digital, saya ingin order template ${item.name}`,
-                        )}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-3 bg-brand-primary text-white rounded-lg hover:bg-brand-secondary transition"
-                      >
-                        <FaShoppingCart />
-                      </a>
+            {/* --- PENANGANAN LOADING STATE --- */}
+            {loading ? (
+              // Menampilkan 3 kartu kosong (skeleton) saat loading
+              [1, 2, 3].map((n) => (
+                <div key={n} className="border rounded-xl overflow-hidden shadow animate-pulse flex flex-col">
+                  <div className="w-full h-48 bg-gray-200" />
+                  <div className="p-4 flex-grow space-y-4">
+                    <div className="h-6 bg-gray-200 rounded w-3/4" />
+                    <div className="h-4 bg-gray-200 rounded w-full" />
+                    <div className="flex justify-between items-center pt-4">
+                      <div className="h-6 bg-gray-200 rounded w-1/4" />
+                      <div className="h-10 bg-gray-200 rounded w-1/3" />
                     </div>
                   </div>
                 </div>
+              ))
+            ) : templates.length === 0 ? (
+              // Menampilkan pesan jika data kosong setelah loading selesai
+              <div className="col-span-full text-center py-20 bg-gray-50 rounded-2xl border-2 border-dashed">
+                <p className="text-gray-500 font-poppins">Belum ada template tersedia.</p>
               </div>
-            ))}
+            ) : (
+              // --- KODE ASLI ANDA TETAP DI SINI ---
+              templates.map((item) => (
+                <div
+                  key={item.id}
+                  className="border rounded-xl overflow-hidden shadow hover:shadow-lg transition flex flex-col"
+                >
+                  <div className="relative w-full bg-gray-100 overflow-hidden">
+                    {item.thumbnail_url?.toLowerCase().endsWith(".mp4") ? (
+                      <video
+                        src={item.thumbnail_url}
+                        className="w-full h-auto block"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                      />
+                    ) : (
+                      <img
+                        src={
+                          item.thumbnail_url ||
+                          "https://via.placeholder.com/300x200"
+                        }
+                        alt={item.name}
+                        className="w-full h-auto block"
+                      />
+                    )}
+                  </div>
+                  <div className="p-4 flex flex-col flex-grow">
+                    <h3 className="font-semibold text-lg font-poppins">
+                      {item.name}
+                    </h3>
+                    <p className="text-sm text-gray-600 font-poppins mb-4">
+                      {item.description}
+                    </p>
+                    <div className="flex items-center justify-between mt-auto">
+                      <span className="font-bold text-brand-primary text-lg">
+                        Rp {item.price.toLocaleString("id-ID")}
+                      </span>
+                      <div className="flex items-center gap-2">
+                        <Link
+                          to={`/template/${item.slug}`}
+                          className="px-4 py-2 text-sm border border-brand-primary text-brand-primary rounded-lg hover:bg-blue-50 transition font-poppins"
+                        >
+                          Preview
+                        </Link>
+                        <a
+                          href={`https://wa.me/628138201614?text=${encodeURIComponent(
+                            `Halo SNA Digital, saya ingin order template ${item.name}`,
+                          )}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-3 bg-brand-primary text-white rounded-lg hover:bg-brand-secondary transition"
+                        >
+                          <FaShoppingCart />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))
+            )}
           </div>
         </div>
       </section>

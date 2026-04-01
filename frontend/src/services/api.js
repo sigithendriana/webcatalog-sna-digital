@@ -1,48 +1,53 @@
-import { API_URL } from "../config/api";
+import { supabase } from "../lib/supabase";
 
 /**
  * GET ALL TEMPLATES (UNTUK KATALOG)
+ * Mengambil semua data dari tabel 'templates'
  */
 export async function getTemplates() {
-  const res = await fetch(`${API_URL}/templates`);
+  const { data, error } = await supabase
+    .from("invitation_templates")
+    .select("*")
+    .order("id", { ascending: false }); // Mengurutkan dari yang terbaru
 
-  if (!res.ok) {
-    throw new Error("Gagal mengambil data template");
+  if (error) {
+    throw new Error("Gagal mengambil data template: " + error.message);
   }
 
-  return res.json();
+  return data;
 }
 
 /**
  * GET TEMPLATE BY SLUG (UNTUK PREVIEW)
  */
 export async function getTemplateBySlug(slug) {
-  const res = await fetch(`${API_URL}/templates/${slug}`);
+  const { data, error } = await supabase
+    .from("invitation_templates")
+    .select("*")
+    .eq("slug", slug) // Mencari berdasarkan slug
+    .single(); // Karena slug unik, kita ambil satu data saja
 
-  if (!res.ok) {
+  if (error || !data) {
     throw new Error("Template tidak ditemukan");
   }
 
-  return res.json();
+  return data;
 }
 
 /**
- * POST TEMPLATE BARU (DIPROTEKSI API KEY)
+ * POST TEMPLATE BARU
+ * Di Supabase, proteksi dilakukan via RLS (Row Level Security) 
+ * atau menggunakan service_role key, tapi untuk demo ini kita gunakan standar.
  */
-export async function createTemplate(data) {
-  const res = await fetch(`${API_URL}/templates`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      // Gunakan kunci yang sudah sukses di Postman tadi
-      "X-SNA-KEY": "21Febuari2026SNADigitalprikitiw@!",
-    },
-    body: JSON.stringify(data),
-  });
+export async function createTemplate(templateData) {
+  const { data, error } = await supabase
+    .from("templates")
+    .insert([templateData])
+    .select();
 
-  if (!res.ok) {
-    throw new Error("Gagal menyimpan data. Pastikan kunci akses benar.");
+  if (error) {
+    throw new Error("Gagal menyimpan data ke Supabase: " + error.message);
   }
 
-  return res.json();
+  return data;
 }
